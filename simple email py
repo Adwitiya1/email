@@ -1,0 +1,14 @@
+import smtplib,ssl
+
+sender = "testingthecode123.1@gmail.com"
+recipient = input("Enter the recipients email address: ")
+password = "8134933967" # Your smtp password
+subject = input("Enter the subject: ")
+text = input("Enter your message: ")
+
+smtp_server = smtplib.SMTP_SSL("smtp.gmail.com", 465) # Creates a server
+smtp_server.login(sender, password) #login credentials
+message = "Subject: {}\n\n{}".format(subject, text)
+smtp_server.sendmail(sender, recipient, message)
+print('Email sent!')
+smtp_server.close()
